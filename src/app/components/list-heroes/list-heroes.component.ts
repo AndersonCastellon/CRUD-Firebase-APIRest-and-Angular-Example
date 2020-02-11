@@ -9,7 +9,7 @@ import { HeroeModel } from 'src/app/models/heroe.model';
 export class ListHeroesComponent implements OnInit {
   @Input() heroeList: HeroeModel[];
   @Output() edit: EventEmitter<string>;
-  @Output() delete: EventEmitter<string>;
+  @Output() delete: EventEmitter<any>;
 
   constructor() {
     this.edit = new EventEmitter();
@@ -22,7 +22,10 @@ export class ListHeroesComponent implements OnInit {
     this.edit.emit(id);
   }
 
-  deleteHeroe(id: string) {
-    this.delete.emit(id);
+  deleteHeroe(id: string, index: number) {
+    this.delete.emit({
+      firebaseId: id,
+      arrayIndex: index
+    });
   }
 }

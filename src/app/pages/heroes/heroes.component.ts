@@ -36,7 +36,7 @@ export class HeroesComponent implements OnInit {
   editHeroe(id: string) {
     this.router.navigate(['heroe', id]);
   }
-  deleteHeroe(id: string) {
+  deleteHeroe(params: any) {
     Swal.fire({
       title: 'Estas seguro?',
       text: 'Esto no ce puede deshacer',
@@ -47,12 +47,12 @@ export class HeroesComponent implements OnInit {
       confirmButtonText: 'Eliminar'
     }).then((result) => {
       if (result.value) {
-        this.heroeService.deleteHeroe(id).subscribe(() => {
+        this.heroeService.deleteHeroe(params.firebaseId).subscribe(() => {
           Swal.fire({
             title: 'Héroe eliminado',
             icon: 'success'
           });
-          this.getHeroes();
+          this.heroeList.splice(params.arrayIndex, 1);
         });
       }
     });
