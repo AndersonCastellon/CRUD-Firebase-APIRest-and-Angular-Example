@@ -1,0 +1,13 @@
+<div class="h1">
+  Nuevo héroe
+</div>
+<hr />
+<div class="text-right">
+  <button routerLink="heroes" class="btn btn-danger">
+    <i class="fa fa-arrow-left"></i>
+    Cancelar
+  </button>
+</div>
+<div class="mt-3">
+  <app-new-heroe-form (heroe)="createHeroe($event)"></app-new-heroe-form>
+</div>

@@ -1,0 +1,32 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Poder</th>
+      <th scope="col">Vivo</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let heroe of heroeList; let i = index">
+      <th>{{ i + 1 }}</th>
+      <td>{{ heroe.name }}</td>
+      <td>{{ heroe.power }}</td>
+      <td>
+        <label *ngIf="heroe.alive" class="bagde badge-success p-1">Vivo</label>
+        <label *ngIf="!heroe.alive" class="bagde badge-danger p-1"
+          >Muerto</label
+        >
+      </td>
+      <td>
+        <button (click)="editHeroe(heroe.id)" class="btn btn-info mr-4">
+          <i class="far fa-edit"></i>
+        </button>
+        <button (click)="deleteHeroe(heroe.id)" class="btn btn-danger">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

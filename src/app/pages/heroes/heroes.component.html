@@ -1,0 +1,23 @@
+<div class="h1">
+  Listado de heroes
+</div>
+<hr />
+<div class="row">
+  <div class="col text-right">
+    <button routerLink="new" class="btn btn-primary">
+      <i class="fa fa-plus"></i>
+      Agregar
+    </button>
+  </div>
+</div>
+
+<div class="mt-3">
+  <app-list-heroes
+    *ngIf="hasContent && !loading"
+    [heroeList]="heroeList"
+    (edit)="editHeroe($event)"
+    (delete)="deleteHeroe($event)"
+  ></app-list-heroes>
+  <app-loading *ngIf="loading"></app-loading>
+  <app-no-content *ngIf="!hasContent && !loading"></app-no-content>
+</div>

@@ -1,0 +1,60 @@
+<div class="row animated fadeIn faster">
+  <div class="col-sm-4">
+    <img src="../../../assets//img/fondo.jpg" class="img-fluid" />
+  </div>
+  <div class="col">
+    <form #f="ngForm" (ngSubmit)="createHeroe(f)">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="newHeroe.name"
+          name="name"
+          required
+          placeholder="Nombre del héroe"
+        />
+      </div>
+      <div class="form-group">
+        <label>Poder:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="newHeroe.power"
+          name="power"
+          required
+          placeholder="Poder del héroe"
+        />
+      </div>
+      <div class="form-group">
+        <div class="custom-control custom-switch float-left">
+          <input
+            name="alive"
+            [(ngModel)]="newHeroe.alive"
+            type="checkbox"
+            class="custom-control-input"
+            id="switch"
+          />
+          <label
+            *ngIf="newHeroe.alive"
+            class="custom-control-label"
+            for="switch"
+            >Está vivo</label
+          >
+          <label
+            *ngIf="!newHeroe.alive"
+            class="custom-control-label"
+            for="switch"
+            >Está muerto</label
+          >
+        </div>
+        <div class="float-right">
+          <button type="submit" class="btn btn-primary">
+            <i class="fa fa-save"></i>
+            Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
